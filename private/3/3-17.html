@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 제어 시스템 - 온도 조절</title>
+</head>
+<body>
+    <form>
+        지속 시간 (0.0 ~ 10.0 시간) : <input type="number" name="" id="" step="0.5" min="0.0" max="10.0"><br>
+        온도 설정 : 10&deg; <input type="range" name="" id="" min="10" max="30" list="temperatures">
+        <datalist id="temperatures">
+            <option value="12" label="low">low</option>
+            <option value="20" label="medium">medium</option>
+            <option value="30" label="high">high</option>
+        </datalist>
+    </form>
+</body>
+</html>
