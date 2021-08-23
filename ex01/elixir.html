@@ -36,6 +36,15 @@
       background-color: rgba(255,0,0,0.1);
     }
 
+    /*자식 선택자 vs 후손 선택지
+    자식 선택자 - > : 직계 후손만 선택
+    후손 선택자 (공백) : 직계를 포함한 모든 자손들 선택 가능
+    */
+
+    .beverage p {
+      /* beverage class의 후손 p태그 선택 */
+      font-weight: bold;
+    }
   </style>
 </head>
 

@@ -6,3 +6,24 @@ h1 {
   color: red;
   background-color: greenyellow;
 }
+
+/*가상 선택자 : 반응 선택자 */
+
+a:link {
+  color: brown;
+}
+
+a:hover {
+  /*마우스가 올라왔을 때의 상태*/
+  color: black;
+}
+
+a:active {
+  /*마우스가 클릭된 상태 */
+  color: red;
+}
+
+a:visited {
+  /* 이미 방문한 링크 */
+  color: blue;
+}
