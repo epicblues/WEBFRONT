@@ -7,6 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <style>
     /* id 셀렉터 : #아이디*/
+    
     #green { /*id가 green인 요소*/
       color: green;
     }
@@ -45,7 +46,25 @@
       /* beverage class의 후손 p태그 선택 */
       font-weight: bold;
     }
-  </style>
+
+    /* 구조 선택자 */
+    .menu > li:first-child {
+      /* .menu 클래스의 li 중에서 첫 번째 자식 선택*/
+      background-color: rgba(0,255,0,0.1);
+    }
+
+    .menu > li:nth-child(2) {
+      background-color: red;
+    }
+
+    .menu > li:nth-child(3) {
+      background-color: rgba(128,0,128,0.1);
+    }
+
+    .menu > li:last-child {
+background-color: rgba(red, green, blue, alpha);
+    }
+   </style>
 </head>
 
 
@@ -55,10 +74,10 @@
   <!-- 메뉴 -->
   <nav>
   <ul class="menu">
-    <ol><a href="#green">Green Tea Cooler</a></ol>
-    <ol><a href="#lightblue">Raspberry Ice Concentration</a></ol>
-    <ol><a href="#blue">Blueberry Bliss Elixir</a></ol>
-    <ol><a href="#red">Cranberry Antioxidant Blast</a></ol>
+    <li><a href="#green">Green Tea Cooler</a></li>
+    <li><a href="#lightblue">Raspberry Ice Concentration</a></li>
+    <li><a href="#blue">Blueberry Bliss Elixir</a></li>
+    <li><a href="#red">Cranberry Antioxidant Blast</a></li>
   </ul>
   </nav>
 
