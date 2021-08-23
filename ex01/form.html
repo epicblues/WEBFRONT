@@ -21,6 +21,22 @@
             /* type 속성이 password 인 input 태그를 선택 */
             background-color: lightblue;
         }
+
+        /* 상태 선택자 
+            :입력 폼의 상태에 따른 선택
+        */
+        input:enabled {
+            background-color: white;
+        }
+
+        input:disabled {
+            /*입력 불가능한 input 태그를 선택한다 */
+            background-color: grey;
+        }
+
+        input:focus {
+            background-color: darkorange;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +55,11 @@
             <label for="userpw">비밀번호</label>
             <input type="password" name="userpw" id="userpw"/>
             <br>
+            <label for="code">추천코드</label>
+            <input type="text" name="code" id="code"
+                disabled>
+            <br>
+
             <!--사용자 입력은 아니고,
                 해당 폼을 처리할 때 반드시 필요한 값
                 주로 개발자가 설정한다. -->

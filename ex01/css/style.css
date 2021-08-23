@@ -9,6 +9,11 @@ h1 {
 
 /*가상 선택자 : 반응 선택자 */
 
+a:visited {
+  /* 이미 방문한 링크 */
+  color: blue;
+}
+
 a:link {
   color: brown;
 }
@@ -21,9 +26,4 @@ a:hover {
 a:active {
   /*마우스가 클릭된 상태 */
   color: red;
-}
-
-a:visited {
-  /* 이미 방문한 링크 */
-  color: blue;
 }
