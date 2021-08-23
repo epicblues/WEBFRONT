@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 5px;
+        }
+        body {
+            background-color: bisque;
+        }
+        form *:focus {
+            background-color: brown;
+        }
+
+        form > :hover {
+            background-color: yellow;
+        }
+
+        form [disabled]{
+            background-color: blueviolet;
+        }
+
+        ul#list #el {
+            background-color: red;
+        }
+
+        ul#list #el :first-child {
+            background-color: pink;
+        }
+
+        ul:hover {
+            background-color: aqua;
+        }
+
+        form [type="password"]{
+            background-color: aquamarine;
+        }
+
+        *:visited {
+            color: red;
+            border-color: black;
+            
+        }
+        *:active {
+            background-color: white;
+        }
+        *:first-letter{
+            color:blue
+        }
+        
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <ul id = "list">
+        <li>HTML5</li>
+        <li>CSS
+            <ol id="el"><li>muyaho</li><li >kekew</li></ol>
+        </li>
+        <li>JavaScript</li>
+    </ul>
+    <input type="password" name="" id="">
+
+    <form action="">
+        <input type="text" name="kms" id="kms">
+        <br>
+        <input type="password" name="kms" id="kmsy">
+        <br>
+        <input type="text" name="kms" id="kmst" disabled>
+    </form>
+
+    <a href="http://naver.com">네이버 연결</a>
+</body>
+</html>
