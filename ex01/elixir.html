@@ -32,6 +32,8 @@
       /*padding : 컨텐츠 내부 영역*/
       /* 위, 오른쪽, 아래, 왼쪽 공백 값이 한 개일 경우*/
       padding: 10px;
+      padding-left: 20px;;
+      padding-bottom:60px;
       /* border : 테두리를 결정하는 속성 */
       border-width: 3px; /* 테두리 두께*/
       border-style:solid; /* 테두리 형태*/
@@ -39,11 +41,15 @@
       margin-bottom : 10px;
       border-radius: 30px;
 
+
       /*축약형 : border-width border-style border-color*/
       border : 3px dashed gray;
     }
 
-   
+   .beverage img {
+     float: left;
+     margin-right: 20px;
+   }
     .beverage.green {
       background-color: #00FF0020;
      
@@ -88,7 +94,13 @@
     .menu {
       margin : 10px 0;
     }
-
+    .menu li {
+      float:left;
+      width: 24.9%;
+      height:30px;
+      text-align: center;
+      list-style-type: none;
+    }
     .menu > li:first-child {
       /* .menu 클래스의 li 중에서 첫 번째 자식 선택*/
       background-color: rgba(41, 135, 41, 0.1);
@@ -125,9 +137,9 @@
 
       /*background : 배경을 설정*/
       /*background 축약형 : image position / size repeat attachment color*/
-      body {
+      /* body {
         background: url("./images/Landscape.jpg") bottom left / 10em 10em repeat-y scroll white; 
-      }
+      } */
 
     
    </style>
@@ -140,10 +152,10 @@
   <!-- 메뉴 -->
   <nav>
   <ul class="menu">
-    <li><a href="#green">Green Tea Cooler</a></li>
-    <li><a href="#lightblue">Raspberry Ice Concentration</a></li>
-    <li><a href="#blue">Blueberry Bliss Elixir</a></li>
-    <li><a href="#red">Cranberry Antioxidant Blast</a></li>
+    <li><a href="#green">Green</a></li>
+    <li><a href="#lightblue">Lightblue</a></li>
+    <li><a href="#blue">Blue</a></li>
+    <li><a href="#red">Red</a></li>
   </ul>
   </nav>
 
