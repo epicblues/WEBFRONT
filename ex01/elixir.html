@@ -9,32 +9,36 @@
     /* id 셀렉터 : #아이디*/
     
     #green { /*id가 green인 요소*/
-      color: green;
+      color: #008000; /*실제 값*/
     }
     #lightblue {
-      color:lightblue;
+      color: #800080;
     }
     #blue {
-      color: blue;
+      color: rgb(0,0,255);
     }
     #red {
-      color:red;
+      
+      color: rgb(255,0,0);
+    
     }
 
     /* class selector .class명*/
     /* 클래스가 beverage '이고' class가 green 인 
     and 면 ,를 붙이지 않는다. */
     .beverage.green {
-      background-color: rgba(0,255,0,0.1);
+      background-color: #00FF0020;
     }
     .beverage.blue {
       background-color: rgba(0,0,255,0.1);
     }
     .beverage.lightblue {
-      background-color: rgba(128,0,128,0.1);
+     
+      background-color: #80008020;
     }
     .beverage.red {
-      background-color: rgba(255,0,0,0.1);
+      
+      background-color: #FF000020;
     }
 
     /*자식 선택자 vs 후손 선택지
@@ -50,14 +54,14 @@
     /* 구조 선택자 */
     .menu > li:first-child {
       /* .menu 클래스의 li 중에서 첫 번째 자식 선택*/
-      background-color: rgba(0,255,0,0.1);
+      background-color: rgba(41, 135, 41, 0.1);
     }
 
-    .menu > li:nth-child(2n) {
+    .menu > li:nth-child(4n) {
       background-color: red;
     }
 
-    .menu > li:nth-child(3) {
+    .menu > li:nth-child(2) {
       background-color: rgba(128,0,128,0.1);
     }
 
@@ -85,8 +89,8 @@
     <div class="seller">
       <img src="./images/Penguins.jpg" alt="펭귄">
     </div>
-    <section id="green" class="green beverage" style="color:yellow;">
-      <div style="color: red;">
+    <section id="green" class="green beverage">
+      <div>
         <h2>
           Green Tea Cooler
         </h2>
