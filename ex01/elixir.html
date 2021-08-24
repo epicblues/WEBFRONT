@@ -28,6 +28,22 @@
     /* class selector .class명*/
     /* 클래스가 beverage '이고' class가 green 인 
     and 면 ,를 붙이지 않는다. */
+    .beverage {
+      /*padding : 컨텐츠 내부 영역*/
+      /* 위, 오른쪽, 아래, 왼쪽 공백 값이 한 개일 경우*/
+      padding: 10px;
+      /* border : 테두리를 결정하는 속성 */
+      border-width: 3px; /* 테두리 두께*/
+      border-style:solid; /* 테두리 형태*/
+      border-color:gray; /* 테두리 색상*/
+      margin-bottom : 10px;
+      border-radius: 30px;
+
+      /*축약형 : border-width border-style border-color*/
+      border : 3px dashed gray;
+    }
+
+   
     .beverage.green {
       background-color: #00FF0020;
      
@@ -62,27 +78,43 @@
 
     .beverage h2 {
       font-size: 1.5em;
+      /* 특정 영역에 공백을 붙이고 싶으면 접비사 활용 */
+      margin-bottom: 20px;
 
 
     }
 
     /* 구조 선택자 */
+    .menu {
+      margin : 10px 0;
+    }
+
     .menu > li:first-child {
       /* .menu 클래스의 li 중에서 첫 번째 자식 선택*/
       background-color: rgba(41, 135, 41, 0.1);
     }
 
-    .menu > li:nth-child(4n) {
+    .menu > li:nth-child(2n) {
       background-color: red;
     }
 
     .menu > li:nth-child(2) {
       background-color: rgba(128,0,128,0.1);
     }
+    .menu > li:nth-child(3) {
+      background-color: rgb(14, 213, 213);
+    }
 
     .feature {
       /* 텍스트 데코레이션 속성 : 줄로 꾸미기 */
       text-decoration: underline;
+    }
+
+    .seller img {
+      border-radius: 20px 30px 50px 10px;
+      padding: 20px;
+      background-color: greenyellow;
+      margin: 20px;
     }
 
     
