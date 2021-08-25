@@ -25,3 +25,36 @@ console.log("표현할 수 있는 가장 큰 수  : ", Number.MAX_VALUE); // 정
 console.log("표현할 수 있는 최소 정수 : ", Number.MIN_SAFE_INTEGER);
 console.log("표현할 수 있는 가장 작은 수  : ", Number.MIN_VALUE); // 정밀도가 높지 않다.
 
+console.log("------------------- Casting : 타입 변환");
+// 중간에 데이터 타입이 변경될 수 있다.
+// 중간에 형 변환이 필요한 경우가 많다.
+// parse계열 메서드 : parseInt, parseFloat 활용
+console.log("011", parseInt('011'));
+console.log("011", parseInt('011', 2)); // 2진수 011 변환
+console.log("0xFF", parseInt("0xFF", 16)); // 16진수 FF를 변환  // 컬러 값 전달 받을 때 필요!
+console.log("123.456", parseInt("123.456"));
+console.log("123.456", parseFloat("123.456"));
+
+// parse 계열 메서드 단순히 string -> Number,
+// 다른 타입으로 변경도 가능하다.
+console.log("PI", parseInt(Math.PI)); // float -> int 변환
+
+// 중요 : NaN - 숫자로 변환할 수 없는 문자열
+// 변환하면 NaN return;
+let v = parseInt('abc1234567');
+console.log(v, typeof v);
+
+// NaN가 포함된 산술 연산 -> 무조건 NaN return
+console.log(2 + v);
+console.log(isNaN(v));
+
+// Infinity
+let s = 1 / 0;
+console.log("1 / 0 == ", 1 / 0);
+
+console.log(s + 10);
+
+// 유한수치인지 확인 isFinite 활용
+console.log("is 1 / 0 finite ? " , isFinite(1 / 0));
+console.log("is 2021 finite ? " , isFinite(2021));
+console.log("is NaN finite ? " , isFinite(parseInt("abc123")));
