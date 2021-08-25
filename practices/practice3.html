@@ -23,21 +23,22 @@
     }
 
     ul {
+        display:grid;
+        grid-template-columns: repeat(5,1fr);
         list-style-type: none;
         height:25px;
         margin-bottom: 0;
         width:520px;
-        
+        column-gap: 2px;
         
     }
     li {
-        float:left;
-        width:100px;
+        
         height: 22px;
         border:1px solid #999;
         background-color:#ccc;
         text-align:center;
-        margin-right:2px;
+        /* margin-right:2px; */
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
        
@@ -45,10 +46,10 @@
 
     .tab-box div {
         border: 1px solid #333;
-        margin-top:-1px;
         text-align: center;
         line-height:200px;
-        width:520px;
+        /* width:520px; */
+        grid-column: 1/6;
     }
 
     .selected:hover {
@@ -65,9 +66,9 @@
         <li>메뉴 3</li>
         <li class="selected">메뉴 4</li>
         <li>메뉴 5</li>
-        
+        <div>탭뷰입니다.</div>
     </ul>
-    <div>탭뷰입니다.</div>
+    
 </div>    
 </body>
 </html>

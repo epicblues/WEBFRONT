@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelector('form').onsubmit = (event) => {
+            const toDo = document.querySelector('[type="text"]');
+            // submit된 value에 맞는 li 만들기
+            const toDoLi = document.createElement('li');
+            toDoLi.innerHTML = toDo.value;
+
+            // li 아래에 해당 li을 지울 수 있는 button 만들기
+            const btn = document.createElement('button');
+            btn.innerHTML='X'
+            btn.onclick = () => {
+                ul.removeChild(toDoLi);
+            }
+            // button을 li의 자식 요소로 배치.
+            toDoLi.appendChild(btn);
+            const ul = document.querySelector('#tasks');
+            ul.appendChild(toDoLi);
+            toDo.value = '';
+            return false;
+        }
+    })
+</script>
+<body>
+    <h1>tasks</h1>
+    <ul id=tasks>
+
+    </ul>
+    <form>
+        <input type="text" placeholder="New Task" id="task">
+        <input type="submit">
+    </form>
+</body>
+</html>

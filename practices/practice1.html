@@ -5,15 +5,16 @@
 <title>테이블</title>
 
 <style type="text/css" media="screen">
+	/*기본 마진과 패딩*/
 	*{
 		margin:0;
 		padding: 0;
 	}
-
+	/* 기본 글꼴 적용 */
 	body {
-		font-family:"맑은 고딕", "돋움";
+		font-family:"맑은 고딕", "돋움", sans-serif;
 		font-size:0.75em;
-		color:#333;
+		color:#333; /*Web Safe Color 사실상 #333333*/
 	}
 
 	.tbl-ex {
@@ -32,18 +33,25 @@
 	.tbl-ex th {
 		background: #999;
 		color:#fff;
+		font-size : 1.1em;
 		border-style:solid;
-		border-width:2px 0;
+		border-width:2px 0; 
 		border-color:black;
+
+		
 	}
 	.tbl-ex tr:hover {
 		background-color:#fc6;
+		cursor: pointer;
 	}
 	
-	.tbl-ex td {
+
+	.tbl-ex > tbody > tr {
 		border-style:dotted;
-		border-width : 1px 0;
+		border-width : 0.5px 0;
 	}
+	
+	
 
 	.even {
 		background-color:#e8ecf6;
@@ -52,12 +60,15 @@
 </head>
 <body>
 	<table class="tbl-ex">
+		<thead>
 		<tr>
 			<th>형식</th>
 			<th>선택자 이름</th>
 			<th>스타일 적용 요소</th>
 			<th>호환성</th>
 		</tr>
+		</thead>
+		<tbody>
 		<tr>
 			<td>a</td>
 			<td>HTML</td>
@@ -94,6 +105,7 @@
 			<td>모든 HTML 태그에 적용</td>
 			<td>IE4, FF1,Safari 1, 크롬 1,오페라 3.5, CSS2</td>
 		</tr>	
+		</tbody>
 	</table>
 </body>
 </html>
