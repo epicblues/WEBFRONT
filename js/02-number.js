@@ -29,7 +29,7 @@ console.log("------------------- Casting : 타입 변환");
 // 중간에 데이터 타입이 변경될 수 있다.
 // 중간에 형 변환이 필요한 경우가 많다.
 // parse계열 메서드 : parseInt, parseFloat 활용
-console.log("011", parseInt('011'));
+console.log("011", parseInt('011')); // 10진수로 분석하고 알아서 11로 바꾼다
 console.log("011", parseInt('011', 2)); // 2진수 011 변환
 console.log("0xFF", parseInt("0xFF", 16)); // 16진수 FF를 변환  // 컬러 값 전달 받을 때 필요!
 console.log("123.456", parseInt("123.456"));

@@ -31,5 +31,35 @@ console.log("2nd Java" , s1.indexOf('Java',position));
 position += "JavaScript".length;
 console.log("No Keyword : " , s1.indexOf('Java',position)); // 찾는 검색어 없음 -1
 
+// 문자열 치환 : replace
+console.log(s1.replace("JavaScript", "JS")); // 실제  s1의 값이 바뀐 것이 아니다.
+console.log(s1);
 
+// 좌우 화이트 스페이스 제거 : trim
+console.log("            Hello      ".trim());
 
+// ---------------------- String 보충 -----------------------
+// 이스케이프 문자
+// " ' 상관 없으면 시작한 따옴표부터 다음 따옴표까지만 문자열로 파악
+// 문자열 안의 특수문자를 포함하고자 할 경우 \를 사용할 수 있다. 
+// \n 줄바꿈 \t 탭 \' \" 따옴표 \` 백틱(ES6에서 추가) \$(ES6에서 추가)
+
+let message = "He said, \"Hello\"";
+console.log(message);
+
+let temp = 24;
+
+console.log (`현재 온도는 \`${temp}\`도 입니다.`);
+
+message = "예전에는 여러 줄 문자열 만드는 게 \n쉽지 않았습니다.";
+console.log(message);
+// ES6의 template 문자열 
+
+// template string
+
+message = `하지만 ES6에서는
+아주 손쉽게
+여러 줄
+문자열을    만들 수
+있습니다!`
+console.log(message);
