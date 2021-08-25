@@ -62,4 +62,5 @@ message = `하지만 ES6에서는
 여러 줄
 문자열을    만들 수
 있습니다!`
+// 입력 형식대로 출력할 수 있다.
 console.log(message);

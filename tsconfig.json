@@ -3,10 +3,10 @@
         "module": "commonjs",
         "target": "ES2015",
         "sourceMap": true,
-        "outDir": "typescript/dist"
+        "outDir": "private/cs50"
     },
     "include": [
-        "typescript/src/*"
+        "private/cs50/*"
     ],
     "exclude": [
         "node_modules"
