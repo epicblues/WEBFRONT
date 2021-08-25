@@ -3,7 +3,7 @@
         "module": "commonjs",
         "target": "ES2015",
         "sourceMap": true,
-        "outDir": "private/cs50"
+        "outDir": "private/cs50/dist"
     },
     "include": [
         "private/cs50/*"
