@@ -69,6 +69,7 @@ m1.introduce();
 m2.introduce();
 
 // 기존 객체들에도 동적으로 속성 추가 가능
+// 
 
 String.prototype.sayHello = function () {
     return "Hello, " + this;
