@@ -22,21 +22,17 @@ document.addEventListener("DOMContentLoaded", ()=> {
         
         const toDo:HTMLInputElement = document.querySelector('[type="text"]');
         const toDoLi:HTMLLIElement = document.createElement('li');
-        const ul:HTMLUListElement = document.querySelector('#tasks');
-        if(toDo.value.trim().length ===0 || toDo.value[0] ==' ') { // 유사 유효성 검사
-            alert('write something only white space not allowed!')
-            toDo.value=null;
+        const ul: HTMLUListElement = document.querySelector('#tasks');
+        
+        if (toDo.value.search(/\w+((\s\w+)?){1,}$/g) !== 0) {
+            alert('제대로 입력하지 않으셨네요!');
             return false;
-        } else if (toDo.value.indexOf("<") !== -1) {
-            alert('writing tags not allowed!');
-            toDo.value=null;
-            return false;
-        } 
+        }
         
 
         counter++;
-        toDoLi.innerHTML = toDo.value.replace("<","");
         
+        toDoLi.innerHTML = toDo.value;
         localStorage.setItem("toDo" + counter,toDo.value);
         localStorage.setItem("counter",String(counter));
         const btn = createButton(ul,toDoLi, "toDo" + counter);
