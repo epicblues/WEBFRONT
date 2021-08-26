@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
     for(let i=1; i<=counter;i++) {
         const li = document.createElement('li');
         
-        const toDo = localStorage.getItem("toDo" + i);
-        if (toDo == null) continue;
+        const toDo:string = localStorage.getItem("toDo" + i);
+        if (toDo === null) continue;
         li.innerHTML = toDo;
         const ul:HTMLUListElement = document.querySelector('#tasks');
         const btn:HTMLButtonElement = createButton(ul,li,"toDo" + i);
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
 }
 
-    document.querySelector('form').onsubmit = () => {
+    document.querySelector('form').onsubmit = ():boolean => {
         
         const toDo:HTMLInputElement = document.querySelector('[type="text"]');
         const toDoLi:HTMLLIElement = document.createElement('li');

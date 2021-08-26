@@ -17,15 +17,29 @@ while (i <= 9) {
 
 console.log('-----------------------------------------');
 
+function printStars(numOfStar) {
+    for (let i = numOfStar; i > 0; i--) {
+        let str = '';
+        for (let j = 1; j <= i; j++) {
+            str += '*';
+        }
+        console.log(str);
+    }
+}
+console.log('-----------------------------------------');
 
-for (let i = 5; i > 0; i--) {
+
+function printStartsRae(numOfStar) {
     let str = '';
-    for (let j = 1; j <= i; j++) {
+    for (let i = 0; i < numOfStar; i++) {
         str += '*';
     }
-    console.log(str);
-}
 
+    for (let j = numOfStar; j>0; j--) {
+        console.log(str.substr(0, j));
+    }
+}
+printStartsRae(10);
 
 let p = 5;
 while (p > 0) {
@@ -38,3 +52,6 @@ while (p > 0) {
     p--;
     console.log(str);
 }
+
+
+

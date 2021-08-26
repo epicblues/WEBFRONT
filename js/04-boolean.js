@@ -3,7 +3,7 @@
 // 논리 조합: AND(논리곱 : &&), OR (논리합 : ||), NOT(논리 부정 : !)
 
 
-let v1; // 선언 하되 초기화 되지 않았다
+let v1; // 선언 하되 초기화 되지 않았다(조회하면 undefined)
 let v2 = null; // 선언하고 null로 초기화되었다.
 
 console.log(typeof v1, typeof v2);
@@ -34,9 +34,10 @@ console.log(Boolean(0));
 console.log(Boolean(''));
 
 let contents = "CONTENTS";
-
+let punch = null;
 console.log('ya 내가 true여도 출력 안 됩니다' && 0); // 0
-console.log((null + 'yaho') && (null + 'yaho')); // nullyaho
-console.log('' || contents); // true
+console.log((punch + 'yaho') && (punch + 'yaho')); // nullyaho
+console.log('' + null + 's' || false); // false
+
 
 
