@@ -32,7 +32,7 @@ position += "JavaScript".length;
 console.log("No Keyword : " , s1.indexOf('Java',position)); // 찾는 검색어 없음 -1
 
 // 문자열 치환 : replace
-console.log(s1.replace("JavaScript", "JS")); // 실제  s1의 값이 바뀐 것이 아니다.
+console.log(s1.replace(new RegExp('[a-zA-Z]{10}'), "JS")); // 실제  s1의 값이 바뀐 것이 아니다.
 console.log(s1);
 
 // 좌우 화이트 스페이스 제거 : trim

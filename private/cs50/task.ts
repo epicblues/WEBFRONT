@@ -23,15 +23,19 @@ document.addEventListener("DOMContentLoaded", ()=> {
         const toDo:HTMLInputElement = document.querySelector('[type="text"]');
         const toDoLi:HTMLLIElement = document.createElement('li');
         const ul:HTMLUListElement = document.querySelector('#tasks');
-        if(toDo.value.trim().length ===0 || toDo.value[0] ==' ') {
+        if(toDo.value.trim().length ===0 || toDo.value[0] ==' ') { // 유사 유효성 검사
             alert('write something only white space not allowed!')
             toDo.value=null;
             return false;
-        }
+        } else if (toDo.value.indexOf("<") !== -1) {
+            alert('writing tags not allowed!');
+            toDo.value=null;
+            return false;
+        } 
         
 
         counter++;
-        toDoLi.innerHTML = toDo.value;
+        toDoLi.innerHTML = toDo.value.replace("<","");
         
         localStorage.setItem("toDo" + counter,toDo.value);
         localStorage.setItem("counter",String(counter));
