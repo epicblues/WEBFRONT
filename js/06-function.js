@@ -71,9 +71,33 @@ function usingCallBack(val1, val2, func) {
 }
 
 usingCallBack(1, 2, function(val1, val2)  {
-    console.log(val1 + val2);
+    console.log(val1 + val2); // 실행 로직을 호출시 주입
 });
 
 usingCallBack(7, 5, function (v1, v2) {
     console.log(v1 * v2);
 })
+
+// 화살표 함수 => 
+const f1 = function () { return 'hello' };
+const f2 = () => 'hello';
+console.log(typeof f1, f1(), typeof f2, f2());
+
+((a) => console.log(a))('bowwow');
+
+// 매개변수 한개
+
+const f3 = function (name) { return `hello ${name}, ${this}` };
+const f4 = name => `hello ${name}, ${this}`;
+console.log(f3('kms'), f4('kkms'));
+
+// 매개변수 여러개
+const f5 = function (a, b) { return a + b; }
+const f6 = (a, b) => a + b;
+console.log(f5(1, 3), f6(1, 3));
+
+// 콜백함수를 전달할 때 활용
+
+usingCallBack(2, 3, (a, b) => console.log(a+b));
+
+
