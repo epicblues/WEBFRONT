@@ -23,9 +23,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
         const toDo:HTMLInputElement = document.querySelector('[type="text"]');
         const toDoLi:HTMLLIElement = document.createElement('li');
         const ul: HTMLUListElement = document.querySelector('#tasks');
-        
-        if (toDo.value.search(/\w+((\s\w+)?){1,}$/g) !== 0) {
+        // /\w+((\s\w+)?){1,}$/g
+        if (toDo.value.search(/^(https?:\/\/)?(www\.)?[a-z0-9]+(\.[a-z]{2,3}){1,2}$/) !== 0) {
             alert('제대로 입력하지 않으셨네요!');
+            toDo.placeholder="URL 입력 연습 -> 추후 수정 필요";
+            toDo.value='';
             return false;
         }
         

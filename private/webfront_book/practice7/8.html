@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .container {
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,1fr);
+            height:50vh;
+        }
+
+
+    </style>
+<body>
+    <h3>16개의 랜덤한 색 만들기</h3>
+    <hr>
+    <section class="container">
+
+
+    </section>
+
+
+    <script>
+
+        for(let i = 0; i<16; i++) {
+            let div = document.createElement('div');
+
+            let first = Math.floor(Math.random()*255 + 1);
+            let second = Math.floor(Math.random()*255 + 1);
+            let third = Math.floor(Math.random()*255 + 1);
+
+            div.innerHTML = `rgb(${first},${second},${third})`;
+            div.style.backgroundColor=`rgb(${first},${second},${third})`;
+            div.style.padding='10px';
+
+            document.querySelector(".container").appendChild(div);
+
+        }
+    </script>
+</body>
+</html>

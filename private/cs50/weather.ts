@@ -43,3 +43,5 @@ getWeather().then((locations) => {
     document.querySelector('h1').style.fontFamily='"굴림","궁서",sans-serif';
 })
 .catch(console.error);
+
+

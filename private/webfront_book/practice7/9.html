@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>book 객체 만들기</h3>
+    <hr>
+    <script>
+        const bookArray = [];
+        
+        for(let i = 0; i<5; i++) {
+            let inputs = prompt('콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력').split(/[\.,:]/);
+            let book = new Object();
+            book.title = inputs[0];
+            book.author = inputs[1];
+            book.price = inputs[2];
+            bookArray.push(book);
+        }
+
+        for (book of bookArray) {
+            document.write(`<p>${book.title}, ${book.author}, ${book.price}</p>`);
+        }
+        document.write('<hr>');
+        const maxTitle = bookArray.sort((a,b) => a.price - b.price)[4].title;
+        document.write("가장 가격이 비싼 책은 ", maxTitle);
+
+
+        
+    </script>
+</body>
+</html>
