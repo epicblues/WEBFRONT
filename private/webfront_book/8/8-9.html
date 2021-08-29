@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let win = null;
+        function rebuildHTML (text) {
+            document.open();
+            document.write(text);
+            document.close();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('form').onsubmit = function() {
+                rebuildHTML(this.children[0].value);
+                return false;
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+    <h3>HTML 문서 작성기 만들기</h3>
+    <hr>
+        <form>
+            <textarea name="" id="" cols="30" rows="10"></textarea><br>
+            <input type="submit" value="HTML 문서 출력하기">
+        </form>
+        
+    
+</body>
+</html>

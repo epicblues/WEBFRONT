@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, img {position:absolute;}
+        img{
+            width: 100px;
+            height:140px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h3>z-index 스타일 프로퍼티</h3>
+    <hr>
+    <div>
+        <img src="/ex01/images/blue.jpg" alt="blue">
+        <img src="/ex01/images/red.jpg" alt="red">
+        <img src="/ex01/images/green.jpg" alt="green">
+        <img src="/ex01/images/lightblue.jpg" alt="lightblue">
+    </div>
+    <script>
+        let images = document.querySelectorAll("img").forEach((img) => {
+            if (img.style.zIndex == '') {
+                img.style.zIndex = 0;
+            }
+            img.onclick = function () {
+                this.style.zIndex = Number(this.style.zIndex) - 1;
+
+            }
+        })
+    </script>
+</body>
+</html>

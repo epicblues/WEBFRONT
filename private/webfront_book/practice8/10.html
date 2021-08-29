@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>정답의 동적 삽입</h3>
+    <hr>
+    <div>
+        <p>Q.거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+        <button>답보기</button>
+    </div>
+    <div>
+        <p>Q.죽느냐 사느냐 어떤 것이 문제인가?</p>
+        <button>답보기</button>
+    </div>
+    <script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.onclick = function () {
+                if(btn.parentElement.children.length === 3) {
+                    btn.parentElement.removeChild(btn.parentElement.children.item(2));
+                    this.innerHTML = '답보기'
+                    return;
+                }
+                let answer = document.createElement('p');
+               
+                answer.innerHTML = (btn.parentElement == document.querySelectorAll('div').item(0))?'백설공주' : '둘다'
+                this.parentElement.appendChild(answer);
+                this.innerHTML = '답 지우기'
+                
+                
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클릭하면 90도 회전합니다.</h1>
+    <hr>
+    <img src="/ex01/images/blue.jpg" alt="">
+    <br>
+    <img id="img2" src="/ex01/images/Desert.jpg" width="200px" height="100px" alt="">
+    <script>
+        let img = document.querySelector('img');
+        let count = 0;
+        img.onclick = function() {
+            count ++;
+            this.style.transform=`rotate(${90*(count % 4)}deg)`;
+        }
+        let count2= 1;
+        document.querySelector('#img2').onclick = function() {
+            this.style.transform=`scale(${count2*2},1)`;
+            count2++;
+        }
+        
+    </script>
+</body>
+</html>
