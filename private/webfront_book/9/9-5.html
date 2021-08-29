@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>마우스를 올려 보세요</p>
+    <button onclick="f(event)">클릭하세요</button>
+    <script>
+        function f(e) {
+            console.log(e.target);
+        }
+
+        document.querySelector('p').onmouseover = f;
+        document.querySelector('p').onclick = function (e) {
+            this.innerHTML = e.returnValue;
+        }
+    </script>
+</body>
+</html>
