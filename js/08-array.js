@@ -57,4 +57,76 @@ console.log(items);
 const foodStr = items.join(" / ");
 console.log(foodStr);
 
-items.splice(3,[a,b,c]);
+
+// push: 배열 맨 뒤에 새 요소 추가
+// pop: 배열 맨 뒤 요소를 추출 후 제거
+// push + pop : Stack처럼 활용할 수 있다.
+
+let fruits = ['banana','orange','apple','mango'];
+console.log("STACK : ", fruits);
+fruits.push('kiwi');
+console.log("STACK : ", fruits);
+console.log("POP : ",fruits.pop());
+console.log("POP : ",fruits.pop());
+console.log("STACK : ", fruits);
+
+// shift : 배열 맨 앞 요소룰 추출 후 제거.
+// push와 shift를 같이 활용하면 Queue 자료형 처럼 사용 가능.
+
+fruits = ['banana','orange','apple','mango'];
+console.log("QUEUE : ", fruits);
+fruits.push('kiwi');
+console.log("QUEUE : ", fruits);
+console.log("SHIFT : ",fruits.shift());
+console.log("SHIFT : ",fruits.shift());
+console.log("QUEUE : ", fruits);
+
+
+console.log("splice --------------------------");
+// splice : 요소 삭제와 삽입 한 번에 할 수 있다.
+fruits = ['banana','orange','apple','mango'];
+console.log("원본 : ", fruits);
+// 인수가 1개 : 해당 인덱스부터 끝까지 제거.
+console.log("추출된 요소들 :", fruits.splice(2) );
+console.log("추출된 이후 : ", fruits);
+
+
+fruits = ['banana','orange','apple','mango'];
+console.log("원본 : ", fruits);
+
+// 인수가 2개 : 첫 번째 index부터 2 번째 인수 크기 만큼 추출 후 제거
+console.log("SPLICE (2,1) :" ,fruits.splice(2,1));
+console.log("원본 : ", fruits);
+
+// 인수가 3개 : 첫 번째 index부터 2 번째 인수 크기만큼 추출 후 제거 
+// 이후 3 번째 부터의 요소들을 첫 번째 index 자리에 넣는다.
+fruits = ['banana','orange','apple','mango'];
+console.log("원본 : ", fruits);
+console.log("SPLICE (2,1,'boogie',true',1,2,3)", fruits.splice(2,1,'boogie',true,1,2,3));
+console.log("원본 : ", fruits);
+
+console.log("reverse ----------------------------");
+// 배열의 순서를 뒤집는다.
+fruits = ['banana','orange','apple','mango'];
+console.log("원본 : ", fruits);
+fruits.reverse();
+console.log("reverse 이후 : ",fruits);
+
+// slice : 추출된 내용으르 삭제하지 않는다. 두 번째 인수 index는 추출 대상에서 예외 this is exclusive.
+let slices = fruits.slice(1,3);
+console.log("원본 : ", fruits);
+console.log("slice : ",slices);
+
+fruits.sort();
+console.log("sorted : ", fruits);
+fruits.sort((a,b) => {
+    // 반환 값이 0이면 순번이 같다.
+    // 반환 값이 -면 오름차순 순번.
+    // 반환 값이 +면 내림차순 순번.
+    if(a==b) return 0;
+    if(a>b) return -1;
+    if(a<b) return 1;
+}
+
+)
+console.log("reverseSorted : ", fruits);
