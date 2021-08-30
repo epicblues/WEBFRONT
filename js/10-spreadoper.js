@@ -59,6 +59,6 @@ console.log(obj3);
 
 // 객체의 전개
 
-let {one,two,other,three,...kms} = obj3; // 객체 안의 property 명과 변수 명과 일치해야 한다?
+let {one,two,other,three,...kms} = obj3; // 객체 안의 속성명과 변수 명과 일치해야 한다.
 console.log(one,two,other,kms);
 

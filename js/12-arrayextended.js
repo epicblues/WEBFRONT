@@ -22,8 +22,9 @@ function testForEach() {
 }
 
 // testForEach();
-
+console.log(this);
 function testEverySome() {
+    console.log(this);
     let data = [
         {name:"홍길동", age:28},
         {name:"장길산", age:35},
@@ -36,7 +37,7 @@ function testEverySome() {
     console.log(result);
 }
 
-// testEverySome();
+testEverySome();
 
 function testFilter() {
     let data = [

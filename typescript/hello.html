@@ -4,17 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이벤트 흐름</title>
+    <title>Document</title>
+
+    <script>
+        let files = [
+            "/ex01/images/blue.jpg",
+            "/ex01/images/Desert.jpg",
+            "/ex01/images/drinks.gif",
+            "/ex01/images/green.jpg",
+            "/ex01/images/Landscape.jpg",
+            "/ex01/images/Penguins.jpg",
+            "/ex01/images/red.jpg",
+        ]
+        let imgs = [];
+        for (index in files) {
+            let img = new Image();
+            img.src=files[index];
+            imgs[index] = img;
+        }
+        count = 1;
+       
+        
+
+    </script>
 </head>
 <body>
-    <p style="color: blue;">이것은 <span style="color: red;" id="span">문장입니다.</span></p>
-    <form>
-        <input type="text" name="s"/>
-        <input type="button" value="테스트" id="button">
-        <hr>
-    </form>
-    <div id="div" style="color: green;"></div>
-    <script src="dist/9-6.js"></script>
-
+    <h3>new Image()로 이미지 로딩</h3>
+    <hr>
+    <p>이미지를 클릭하면 다음 이미지를 보여줍니다.</p>
+    <img src="/ex01/images/blue.jpg" alt="">
+    <script>
+        document.querySelector('img').onclick = (e)=> {
+            e.target.src = files[count % 7];
+            count++;
+        }
+    </script>
 </body>
 </html>
