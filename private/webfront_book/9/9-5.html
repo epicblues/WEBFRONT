@@ -18,6 +18,15 @@
         document.querySelector('p').onclick = function (e) {
             this.innerHTML = e.returnValue;
         }
+        document.oncontextmenu = function (e) {
+           
+            alert(e.type + "는 사용 금지입니다!");
+            return false;
+        }
+        document.querySelector('body').onmousemove = function (e) {
+            console.log(e.clientX,e.clientY);
+            console.log(e.offsetX,e.offsetY);
+        }
     </script>
 </body>
 </html>

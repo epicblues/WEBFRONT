@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>onclick, 계산기 만들기</h3>
+    <hr>
+    <p>계산하고자 하는 수식을 입력하고 계산 버튼을 눌러봐요.</p>
+    <form>
+        <label for="expression">식 </label><input type="text" name="expression"><br>
+        <label for="answer">값 </label><input type="text" name="answer"><br>
+        <input type="submit" value="계산">
+    </form>
+    <script>
+        document.querySelector('form').onsubmit = function(e) {
+            console.log(this);
+            let expression = this.children[1].value;
+            console.log(expression)
+            this.children[4].value = eval(expression) == undefined ? 0 : eval(expression);
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
