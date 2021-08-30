@@ -130,3 +130,16 @@ fruits.sort((a,b) => {
 
 )
 console.log("reverseSorted : ", fruits);
+
+// split: 특정 구분자를 기준으로 문자열을 분리, 배열 반환
+const str = "Javascript is something stranger than other languages";
+strArr = str.split(" ");
+
+for(data of strArr) {
+    console.log("strArr's data : ",data);
+}
+
+
+for(index in strArr) {
+    console.log("strArr's index : ",index);
+}
