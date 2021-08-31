@@ -31,7 +31,9 @@
 
 <body>
     <div id="product-info">
-        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS">
+        <!-- inline javaScript : 추천하지 않는다.-->
+        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS"
+        onclick="alert(this.getAttribute('class'))">
         <h2>iPhone Xs</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -62,6 +64,7 @@
             }
             obj.setAttribute("title","사진: " + obj.getAttribute("title"));
             console.log(obj.getAttribute("title"));
+            
 
             // 하단의 Products 이미지들의 타이틀 속성도 변경해 봅시다.
             let subs = document.querySelectorAll('.sub-image');
@@ -71,8 +74,38 @@
             }
             
         }
-        testAttributes();
+        // testAttributes();
 
+        // 이벤트 붙이기 2번째
+        document.getElementById('main-image').onclick = (e) => {
+            console.log('이벤트 객체 : ',e);
+            // 이벤트 발생 객체 : e.target
+            alert(e.target.src)
+        }
+
+
+        // 가장 추천하는 방식
+        // addEventListener(이벤트이름,함수,bubble여부)
+
+        // document.querySelector('[type="text"]').addEventListener("keypress" , (e) => {
+        //         console.log(e.keyCode);
+        // })
+
+        document.querySelector('#keyword').addEventListener("keyup", (e) => {
+                console.log(e.keyCode);
+                document.querySelector("#btn-search").innerHTML = e.target.value + " : 검색";
+            })
+        
+        let products = document.getElementsByClassName('sub-image');
+        for (let img of products) {
+            console.log(img);
+            img.addEventListener('click', (e) => {
+                document.querySelector('#main-image').setAttribute('src',e.target.getAttribute('src'));
+                document.querySelector('#main-image').nextElementSibling.innerHTML = img.title;
+            })
+        }
+
+        
 
     </script>
 </body>
