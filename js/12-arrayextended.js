@@ -109,3 +109,17 @@ function testReduce3() {
 }
 
 testReduce3();
+
+// 배열에 있는 요소 짝수만 필터링 -> 내부 데이터 * 2 -> 합계
+
+function finalTest() {
+    let source = [1, 5, 40, 2, 3, 4, 50, 20, 30, 40]
+    
+    let answer = source.filter((value) => value % 2 == 0)
+        .sort((a,b)=> a-b)
+        .map(value => value * 2 )
+        .reduce((a, b) => a + b,0);
+    console.log(answer);
+}
+
+finalTest();
