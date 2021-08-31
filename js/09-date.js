@@ -1,3 +1,4 @@
+
 // Date: 날짜와 시간
 let now = new Date(); // 현재 시간
 console.log(now);

@@ -1,3 +1,4 @@
+
 function testForEach() {
     // forEach 메서드 : 배열의 요소를 하나씩 콜백에 전달한다.
     let source = ["banana",'orange','apple','mango'];
@@ -39,6 +40,7 @@ function testEverySome() {
 
 testEverySome();
 
+
 function testFilter() {
     let data = [
         {name:"홍길동", age:28},
@@ -46,10 +48,64 @@ function testFilter() {
         {name:"전우치", age:40}
     ]
     let result = data.filter((item) => {
-        return item.age <30;
+        return item.name <= "홍길동";
     })
     console.log(testFilter.name,result);
     
 }
 
 testFilter();
+
+function testMap() {
+    let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let calculated = data.map(item => { return { result: item * 2 + 4, babo: 'kms', date:new Date(2012,item,10) } });
+    console.log(calculated);
+}
+
+testMap();
+
+function testReduce() {
+    let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let sum = data.reduce((a, b, index) => {
+        a["kmsobject" + index] = b
+        return a;
+    }, {})
+    
+    console.log(sum);
+}
+testReduce();
+
+function testReduce2() {
+    let source = [12, 4, 19, 33, 86];
+    let sum = source.reduce((acc, value, idx, arr) => {
+        // callback
+        // acc -> 직전까지의 누산값
+        // value -> 현재요소의 값
+        // idx -> 현재요소의 인덱스
+        // arr -> 누산에 사용되는 배열 자체
+        console.log(`이전 값은 ${acc}`);
+        console.log(`${arr}의 ${idx}번째 요소는 ${value}`);
+
+        // 직전 누산값과 현재 누산값을 연산하여 리턴
+        return acc + value;
+    }, 0);
+
+    console.log("원본 : ", source);
+    console.log("누계값(reduce): ", sum);
+}
+testReduce2();
+
+function testReduce3() {
+    // map 함수를 reduce 함수로 시뮬레이션
+    let source = [12, 4, 19, 33, 86];
+    // 요소를 받아와서 짝수면 짝수, 홀수면 홀수
+    // 내부 요소를 변경
+
+    let mapped = source.reduce((a,b,idx) => {
+        a[idx] = (b % 2 == 0) ? "짝수" : "홀수";
+        return a
+    }, [])
+    console.log(mapped);
+}
+
+testReduce3();
