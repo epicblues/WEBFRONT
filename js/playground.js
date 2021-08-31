@@ -11,6 +11,12 @@ const account = {
 
 };
 
+if (true) {
+    const account = 10;
+    console.log(account);
+}
+
+
 console.log(account.getOwner(1,2,3,[42,33,'boogie'],{id:'stupid',age:42},false,undefined,null));
 // const {owner, code, withdraw,...others} = account;
 // console.log(others.getBalance());

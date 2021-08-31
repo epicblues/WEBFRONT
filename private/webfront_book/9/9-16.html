@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onfocus와 onblur</title>
+</head>
+<body>
+    <h3>onfocus와 onblur</h3>
+    <hr>
+    <p>이름을 입력하지 않고 다른 창으로 이동할 수 있습니다.</p>
+    <form>
+        <label for="stuName">이름</label><input type="text" id="stuName" /><br>
+        <label for="stuId">학번</label><input type="text" name="" id="stuId"><br>
+    </form>
+    <script>
+        const inputs = document.querySelectorAll('input');
+        
+        document.addEventListener('DOMContentLoaded', (e) => {
+                inputs[0].focus();
+                inputs[0].onfocus = () => {
+                    console.log('wow im selected!')
+                }
+                inputs[0].onkeydown = (e) => {
+                    inputs[1].value = e.target.value.toUpperCase();
+                }
+                inputs[0].onblur =(e) => {
+                    if(e.target.value !== '') return
+                    console.log(e.target.value);
+                    alert('이름을 입력하세요!!!!')};
+            })  
+    </script>
+</body>
+</html>
