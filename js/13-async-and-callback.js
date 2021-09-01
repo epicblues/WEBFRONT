@@ -48,12 +48,23 @@ function testLogicPromise() {
 
 // async/await : async는 Promise를 좀 더 쉽게 다룰 수 있게 해준다.
 async function async() {
-    await setTimeout(() => console.log('booya'), 3000);
-    console.log("async function");
-    return "SUCCESS";
+    let returnValue = 'ya';
+    await new Promise((resolve,reject) => {
+        setTimeout(() => {
+            returnValue ="promise finished";
+           resolve();
+            // resolve('im done');
+        },5000)
+    })
+    console.log(returnValue, "앞의 promise 끝났음!")
+    return new Promise ((resolve, reject) => {
+        resolve(returnValue);
+    })
 }
 
 //async 함수는 항상 Promise를 리턴한다.
 async().then(value => {
     console.log(value);
-})
+}).catch(console.log);
+
+

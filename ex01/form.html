@@ -42,13 +42,40 @@
         
         
     </style>
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('form').onsubmit = checkForm;
+        })
+        
+        function checkForm(){
+            const form = this;
+            // 글자수 control
+            if(form.userid.value.trim().length < 5 || form.userpw.value.trim().length <5 ) {
+                alert("아이디 또는 pw를 입력해야 합니다!");
+                return false;
+            }  
+            console.log(form.favorite);
+            let count = 0;
+            form.favorite.forEach(select => {
+                console.log(select);
+                if(select.checked) count++;
+            })
+            if(count === 0) {
+                alert('선호 음료가 채택되지 않았습니다.');
+            }
+            
+            
+
+            return false;
+        }
+    </script>
 </head>
 <body>
-    <h1>멤버십 가입</h1>
-    <p><a href="./index.html">Bit Lounge</a></p>
+    <h1 name="babo">멤버십 가입</h1>
+    <p name="hello"><a href="./index.html">Bit Lounge</a></p>
     <form name="registerForm" method="POST" action="/register.html">
         <fieldset><!-- 입력 양식의 그룹화 -->
-            <legend>회원 가입</legend>
+            <legend name="boogie">회원 가입</legend>
             <label for="userid">아이디</label>
             <!--name 속성은 서버로 전달될 파라미터 이름-->
             <!--id 속성은 클라이언트 html에서 해당 입력 양식을 식별하기 위한 이름 서버와 관계 X!-->
@@ -97,56 +124,9 @@
             <input type="submit" value="멤버십 가입">
         </fieldset>
     </form>
-    <script>
-        const form = document.getElementsByName('registerForm')[0];
-        const inputs = document.querySelectorAll("input");
-        
-        function checkForm(){
-            let frm = document.registerForm;
-            console.log(frm);
-            let userid = frm.userid.value.trim();
-            let userpw = frm.userpw.value.trim();
-            console.log(userid,userpw);
-            
-            if(userid.length <4 ) {
-                alert('아이디는 최소 4문자 이상이어야합니다.');
-                return false;
-            }
+    <form name='muyaho'>
 
-            if(userpw.length <4 ) {
-                alert('패스워드는 최소 4문자 이상이어야합니다.');
-                return false;
-            }
-            // 선호 음료는 최소 1개 이상 선택
-            let checkedCount = 0;
-            for ( let i = 0; i < frm.favorite.length; i ++ ) {
-                // 개별 체크박스
-                let cb = frm.favorite[i];
-                if (cb.checked) {
-                    console.log(cb.value, "is checked!");
-                    checkedCount++;
-                }
-            }
-
-            if(checkedCount == 0) {
-                alert("최소 1개 이상의 음료를 선택해야 합니다.");
-            }
-
-            // 통신사 선택
-            // 선택된 것의 인덱스 확인
-            let selectedIndex = frm.telecom.selectedIndex;
-            
-            let option = frm.telecom[selectedIndex].value;
-            console.log(option);
-            return false;
-            
-            
-        }
-
-
-        
-
-        form.onsubmit = checkForm;
-    </script>
+    </form>
+    
 </body>
 </html>

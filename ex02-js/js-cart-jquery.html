@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>JS Cart</title>
+        <style>
+            #list li {
+                height: 30px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Shopping List</h1>
+        </div>
+        <div id="cart-list">
+            <ul id="list">
+                <li>무</li>
+                <li>배추</li>
+                <li>쪽파</li>
+                <li>고춧가루</li>
+            </ul>
+        </div>
+        <div id="cart-input">
+            <input id="item"><button id="btn-add">추가</button>
+        </div>
+        <div id="footer">
+            &copy;Bit Academy
+        </div>
+        <script>
+            function createButtonAndToolBar() {
+                let toolBar = $('<div>');
+                toolBar.css({
+                    float: "right",
+                    display: "inline"
+                })
+                let btn = $('<button>').text("X");
+                btn.appendTo(toolBar);
+                
+                btn.on('click', (e) => {
+                    let li = e.target.parentNode.parentNode;
+                    $(li).remove();
+                })
+                return toolBar;
+            }
+
+
+            function setInputAndBtn() {
+                let itemInput = $('#item');
+               
+                itemInput.next().on('click', () => {
+                    if(itemInput.val().trim() == false) {
+                        alert("아무것도 입력하지 않았습니다!")
+                        itemInput.focus();
+                        return;
+                    }
+                    let li = $("<li>")
+                    li.html(itemInput.val());
+                    li.appendTo($("#list"));
+                    
+
+                    // 버튼 만들기
+                    const toolBar = createButtonAndToolBar();
+                    toolBar.appendTo(li);
+                    
+                    itemInput.val("");
+                    itemInput.focus();
+                });
+            }
+           
+            $(document).ready( () => {
+                console.log("is this working?")
+                $('#list > li').remove();
+                setInputAndBtn();
+            })
+
+           
+
+        </script>
+    </body>
+</html>
