@@ -27,5 +27,51 @@
         <div id="footer">
             &copy;Bit Academy
         </div>
+        <script>
+                // let length = document.querySelector('#list').children.length
+                // for(let i = 0 ; i < length;i++){ document.querySelector("#list").removeChild(document.querySelector("#list").lastChild);}
+            let list = document.querySelector("#list");
+            let length = list.children.length;
+            for(let i = 0; i < length; i++) {
+                list.removeChild(list.children[0]);
+            }
+            
+            function deleteItem (e) {
+                let li =e.target.parentElement;
+                let ul = li.parentElement;
+                let li2 = ul.parentElement;
+                li2.removeChild(ul);
+            }
+
+            function addItem (e) {
+                let input = e.target.previousElementSibling.value;
+                if (input.trim().length > 0) {
+                    let li = document.createElement("li");
+                    li.innerText = input;
+                    let container = document.querySelector("#cart-list ul")
+                    // container.appendChild(li);
+                    container.insertBefore(li,container.firstChild);
+
+                    e.target.previousElementSibling.value = '';
+                    e.target.previousElementSibling.focus();
+
+
+                    let toolBar = document.createElement("div");
+                    toolBar.style.display = "inline"
+                    let delBtn = document.createElement("button");
+                    delBtn.innerText = "삭제";
+                    delBtn.style.cssFloat = "right";
+                    delBtn.onclick=deleteItem
+                    
+                    toolBar.appendChild(delBtn);
+
+                    li.appendChild(toolBar);
+                } else {
+                    alert('입력값이 없습니다!');
+                }
+                
+            }
+            document.querySelector('#cart-input button').onclick = addItem
+        </script>
     </body>
 </html>

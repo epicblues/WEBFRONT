@@ -42,10 +42,14 @@
             anim id est laborum.</p>
         <h3>Products</h3>
         <ul id="product-list">
-            <li><img class="sub-image" src="images/iphone-xs.jpeg" title="iPhone XS"></li>
-            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"></li>
-            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"></li>
-            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"></li>
+            <li><img class="sub-image" src="images/iphone-xs.jpeg" title="iPhone XS"
+                data-color="red"></li>
+            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"
+                data-color="green"></li>
+            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"
+                data-color="blue"></li>
+            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"
+                data-color="purple"></li>
         </ul>
         <input type="text" id="keyword" /><button id="btn-search">검색</button>
     </div>
@@ -100,10 +104,15 @@
         for (let img of products) {
             console.log(img);
             img.addEventListener('click', (e) => {
+                const title = document.querySelector('#main-image').nextElementSibling
+                
                 document.querySelector('#main-image').setAttribute('src',e.target.getAttribute('src'));
                 document.querySelector('#main-image').nextElementSibling.innerHTML = img.title;
+                title.style.backgroundColor = img.getAttribute("data-color");
             })
         }
+
+
 
         
         
