@@ -77,10 +77,31 @@
                 // 리스트의 요소들은 jQuery객체가 아니므로 다시 wrapping 해야 한다.
                 $(sub);
                 $(sub).attr("title", "사진 : " + $(sub).attr("title"));
+                $(sub).on('click',(e) => {
+                    $('#main-image').attr(
+                        {
+                            src:$(e.target).attr("src"),
+                            title:$(e.target).attr("title")
+                        });
+                    $('#product-info >:nth-child(2)').html($(e.target).attr("title"))
+                    .css("backgroundColor", $(e.target).data("color"));
+                })
+                
             }
 
+           
+
         }
-        testAttributes();
+        
+
+        $(document).ready(function() {
+            // 페이지 초기화 수행
+            $("[type='text']").on("keyup",function(e) {
+                
+                $(e.target).next().text($(e.target).val() + " : 검색");
+            })
+            testAttributes();
+        })
 
 
     </script>
