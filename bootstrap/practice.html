@@ -12,14 +12,8 @@
 
     <title>Hello, world!</title>
     <style>
-        .row >div {
-            border:3px solid red;
-        }
-        .col:hover {
-            background-color: lightgray;
-        }
-        .row {
-            border:2px solid blue;
+        .container .row .col {
+            border:2px orange solid;
         }
 
         button {
@@ -58,8 +52,8 @@
             <div class='col'>hello world</div>
         </div>
         <div class='row'>
-            <div class='col-2'>hello world</div>
-            <div class='col-4'>hello world</div>
+            <div class='col col-2'>hello world</div>
+            <div class='col col-4'>hello world</div>
             <div class="alert alert-primary col-6 alert-info fade show">
                 중요한 메시지 알림 예제 <a href="https://naver.com" target="_top" class="alert-link">GO</a> 네이버
                 <button data-dismiss="alert">끄기</button>
@@ -86,16 +80,65 @@
                 </div>
                 <div class="modal-footer">
                     modal-footer입니다!
-                </div>
+                </div>9
             </div>
             
         </div>
     </div>
 
     <div class="modal" id="modalForm">
-
+        <div class="modal-form">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form name="login">
+                            <div class='form-row row'>
+                                <div class='form-group col-md-6'>
+                                    <label for="email">이메일</label>
+                                    <input type="email" id="email" name="email" class="form-control" />
+                                </div>
+                                <div class='form-group col-md-6'>
+                                    <label for="password">비밀번호</label>
+                                    <input type="password" id="password" name="password" class="form-control" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary">제출</button>
+                        <button class="btn btn-outline-secondary" data-dismiss="modal">&times;</button>
+                    </div>
+                   
+                </div>
+                
+            </div>
+            
+        </div>
+        
     </div>
+    <script>
+        document.querySelector('.modal-footer button').onclick = () => {
+            const form = document.login;
+            let email = form.email.value;
+            let password = form.password.value;
+            console.log(email, password);
+            
+            if (email == "epicblue@hanmail.net" && password == '1023') {
+                document.querySelector('.container').previousElementSibling.innerText = `${email.split('@')[0]}님 안녕하세요!`
+                document.querySelector('[data-dismiss="modal"]').click();
+            } else {
+                form.email.value="";
+                form.password.value = "";
+                form.email.placeholder="제대로 입력해 주시죠!"
+            }
 
+        }
+       
+
+    </script>
 
 
 
