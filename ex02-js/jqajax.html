@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+        </script>
+    <style>
+        .poster {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnCallSnippet">html 조각 불러오기</button>
+    <button id="btnCallMovies">영화 목록 불러오기</button>
+
+    <div id="info">
+        <!--Ajax로 snippet.html을 불러와서 표시할 영역-->
+    </div>
+
+    <table id="list" border="1" width="540">
+
+    </table>
+    <script>
+        $(document).ready(function(event)  {
+            $('#btnCallSnippet').on('click', function () {
+                $.ajax({
+                    url: "./snippet.html",
+                    type: "GET",
+                    dataType: "html",
+                    success: function (response) {
+                        // 성공 콜백
+                        // response -> 응답 메시지(html)
+                        console.log(response)
+                        document.querySelector('#info').innerHTML = response;
+                    },
+                    error:function(request,status,error) {
+                        
+                        console.log(error);
+                        console.log(request);
+                        console.log(status);
+                    }
+                });
+            })
+            $('#btnCallMovies').on('click', function () {
+                $.ajax({
+                    url: "http://localhost:3000/movies",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        const movies = response.movies // 배열
+                        
+                        for (let movie of movies) {
+                            // 개별 영화 정보 뽑아오기
+                            let title = movie.title;
+                            let director = movie.director;
+                            let year = movie.year;
+                            let image = "http://localhost:3000/images/" +movie.image;
+                            console.log(title,director,year,image);
+                            let tr = $('<tr>');
+                            let htmlString = `
+                            <td><img class = "poster" src = ${image}></td>
+                            <td>${title}</td>
+                            <td>${director}</td>`
+                            tr.html(htmlString);
+                            tr.appendTo($('#list'));
+                        }
+                        
+
+                        
+
+                        
+                    },
+                    error: function (request, status, error) {
+
+                        console.log("ERROR : ",error);
+                        console.log("REQUEST : ",request);
+                        console.log("STATUS : ",status);
+                    }
+                });
+            })
+        })
+
+        
+
+        
+    </script>
+</body>
+</html>
