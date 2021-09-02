@@ -12,6 +12,9 @@
         .poster {
             width: 100px;
         }
+        table {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -51,8 +54,10 @@
                     url: "http://localhost:3000/movies",
                     type: "GET",
                     dataType: "json",
-                    success: function (response) {
+                    success: function (response,str,respObj) {
                         console.log(response);
+                        console.log(str);
+                        console.log(respObj);
                         const movies = response.movies // 배열
                         
                         for (let movie of movies) {
@@ -61,7 +66,7 @@
                             let director = movie.director;
                             let year = movie.year;
                             let image = "http://localhost:3000/images/" +movie.image;
-                            console.log(title,director,year,image);
+                           
                             let tr = $('<tr>');
                             let htmlString = `
                             <td><img class = "poster" src = ${image}></td>
