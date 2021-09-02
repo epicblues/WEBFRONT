@@ -29,6 +29,8 @@
         [data-dismiss] {
             float:right;
         }
+
+        
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -119,6 +121,7 @@
         </div>
         
     </div>
+    
     <script>
         document.querySelector('.modal-footer button').onclick = () => {
             const form = document.login;
@@ -132,11 +135,25 @@
             } else {
                 form.email.value="";
                 form.password.value = "";
-                form.email.placeholder="제대로 입력해 주시죠!"
+                form.parentNode.previousElementSibling.children[0].innerText = "제대로 입력 하시길!"
             }
 
         }
-       
+        document.querySelector('#controller >:nth-child(3)').onclick = () => {
+            fetch('http://localhost:3000/movies')
+            .then(data=>data.json())
+            .then(movies => {
+                
+                const movie = movies.movies[0]
+                const movieInfo = document.createElement('table');
+                movieInfo.appendChild(document.createElement('tr'));
+                const html = `<td>${movie.title}</td>
+                <td>${movie.director}</td>
+                <td>${movie.year}`
+                movieInfo.children[0].innerHTML = html
+                document.body.appendChild(movieInfo);
+            });
+        }
 
     </script>
 
