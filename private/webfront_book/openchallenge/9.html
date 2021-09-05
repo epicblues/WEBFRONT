@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 클릭 연습</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            
+        }
+        .container div {
+            border:1px solid blue;
+        }
+    </style>
+    <script>
+
+        function appendImage(img) {
+            let randomNum = Math.floor(Math.random()*100);
+            let container = document.querySelector('.container');
+            container.children[randomNum].appendChild(img);
+        }
+
+
+        // img DOM 생성
+        let img = document.createElement('img');
+        img.src= "./phone1.jpg";
+        img.style.width="48px";
+        img.style.height="48px";
+        img.onclick = (e) => {
+            e.target.parentNode.removeChild(e.target);
+            appendImage(e.target)
+        }
+        
+
+        // 초기화 시 칸 100개 load
+        window.addEventListener('load', () => {
+            let container = document.querySelector('.container');
+            for(let i = 0; i < 100; i++) {
+            let div = document.createElement('div');
+            container.appendChild(div);
+            }
+            // img를 무작위 div에 삽입
+            appendImage(img);
+        })
+
+        
+        
+        
+       
+
+
+
+        
+        
+
+
+    </script>
+</head>
+<body>
+    <h3>마우스 클릭 연습</h3>
+    <hr>
+    <div class="container">
+        
+    </div>
+    
+</body>
+</html>

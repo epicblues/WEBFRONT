@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('body').style.cursor="none"
+            document.querySelector('body').style.height="100vh"
+            window.addEventListener('mousemove',(event) => {
+                
+                document.querySelector("#image").style.left=event.clientX + "px";
+                document.querySelector("#image").style.top=event.clientY + "px";
+
+            })
+            
+        })
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h3>이미지 커서 만들기</h3>
+    <hr>
+    <p>마우스를 움직이면 이미지로 만든 커서가 마우스를 따라 다닙니다.</p>
+    <div id="image" style="position:absolute;z-index: 5;">
+        <img src="./apple.jpg" alt="" width="30px" height="30px">
+    </div>
+</body>
+</html>

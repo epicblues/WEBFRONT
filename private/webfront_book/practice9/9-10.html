@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:5px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const eval = document.querySelector('input');
+            const btns = document.querySelectorAll('button').forEach((btn)=> {
+                const name = btn.innerHTML;
+                switch(name) {
+                    case "BACK": 
+                        btn.onclick=() => {eval.value = eval.value.substring(0,eval.value.length-1)};
+                        break;
+                    case "CE":
+                    case "C":
+                        btn.onclick = () => {eval.value = ""};
+                        break;
+                    case "=":
+                        btn.onclick = () => {eval.value = this.eval(eval.value)};
+                        break;
+                    case "NONE":
+                        break;
+                    default :
+                        btn.onclick = () => {eval.value += btn.innerHTML};
+                    
+                }
+            })
+        }) 
+    </script>
+</head>
+<body>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <input type="text" name="eval" style="display:block">
+    <div class="container">
+        <button>BACK</button>
+        <button>CE</button>
+        <button>C</button>
+        <button>=</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>/</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>*</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>-</button>
+        <button>0</button>
+        <button>+</button>
+        <button>NONE</button>
+        <button>NONE</button>
+    </div>
+    
+</body>
+</html>

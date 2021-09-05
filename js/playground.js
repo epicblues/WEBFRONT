@@ -71,3 +71,16 @@ console.log(account.getOwner(1,2,3,[42,33,'boogie'],{id:'stupid',age:42},false,u
 // const Bong = new SUV(3,2);
 // Bong.ride();
 
+
+const a = Array.prototype.filter.call([1,2,3,4,5], (value) => {
+    
+    if(value == 2) return true;
+    else return false;
+})
+
+console.log(a);
+
+
+
+
+

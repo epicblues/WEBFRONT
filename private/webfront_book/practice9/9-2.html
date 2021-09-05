@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function printImage() {
+            const src = "./" + this.id + ".jpg";
+            document.images[0].src = src;
+            document.images[0].style.display="block";
+
+        }
+
+        window.addEventListener('load', () => {
+            const fruits = document.fruitForm.fruit;
+            fruits.forEach((input) => {
+                input.addEventListener('click', printImage)
+            })
+            
+            document.images[0].style.display="none";
+        })
+
+    
+    </script>
+</head>
+<body>
+    <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+    <hr>
+    <form name="fruitForm">
+        <input type="radio" name="fruit" id="banana">
+        <label for="banana">바나나</label>
+        <input type="radio" name="fruit" id="mango">
+        <label for="mango">망고</label>
+        <input type="radio" name="fruit" id="apple">
+        <label for="apple">사과</label>
+    </form>
+    <img src="" alt="fruit">
+    
+</body>
+</html>
